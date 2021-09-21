@@ -4,8 +4,8 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="Clustering Package",
-    version="0.0.1",
+    name="BMI500HW4",
+    version="0.0.2",
     author="Chenbin Huang",
     author_email="chenbin.huang@@emory.edu",
     description="BMI 500 HW4 Clustering Package",
@@ -23,4 +23,8 @@ setuptools.setup(
     package_dir={"": "src"},
     packages=setuptools.find_packages(where="src"),
     python_requires=">=3.6",
+    install_requires=[
+          'scikit-learn',
+          'matplotlib'
+      ]
 )
