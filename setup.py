@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="BMI500HW4",
-    version="0.0.2",
+    version="0.0.3",
     author="Chenbin Huang",
     author_email="chenbin.huang@@emory.edu",
     description="BMI 500 HW4 Clustering Package",

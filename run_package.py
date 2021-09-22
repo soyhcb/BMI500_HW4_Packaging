@@ -1,9 +1,9 @@
 try:
-    from BMI500HW4.cluster import Cluster, run_default
+    from BMI500HW4.cluster import Cluster
 except ImportError as e:
-    print(e, "package not installed properly")
+    print(e, "package not installed properly.\n Try to import locally")
     try:
-        from src.BMI500HW4.cluster import Cluster, run_default
+        from src.BMI500HW4.cluster import Cluster
     except ImportError as e:
         print("package not located properly")
         raise e

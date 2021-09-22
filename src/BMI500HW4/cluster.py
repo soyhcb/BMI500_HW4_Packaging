@@ -32,6 +32,8 @@ class Cluster:
         Return: 1D-array of predictions.
         Default data is iris dataset, so has default 3 clusters
         """
+        if self.cluster:
+            return self.cluster
         model = KMeans(n_clusters=n_clusters, random_state=0).fit(self.X)
         self.cluster = model.labels_
         self.model = model
@@ -63,13 +65,6 @@ class Cluster:
             # Plot the points
             plt.scatter(self.X[:, 0], self.X[:, 1], c=self.groundtruth, cmap=plt.cm.Set1,
                         edgecolor='k')
-            # set axises
-            plt.xlabel('eigenvector 1')
-            plt.ylabel('eigenvector 1')
-            plt.xlim(min(self.X[:, 0]), max(self.X[:, 0]))
-            plt.ylim(min(self.X[:, 1]), max(self.X[:, 1]))
-            plt.xticks(())
-            plt.yticks(())
             norm = plt.Normalize(self.groundtruth.min(), self.groundtruth.max())
             handles = [plt.Line2D([0, 0], [0, 0], color=plt.cm.Set1(norm(i)), marker='o', linestyle='', label=label)
            for i, label in enumerate(self.labels)]
@@ -80,13 +75,13 @@ class Cluster:
                         # Plot the points
             plt.scatter(self.X[:, 0], self.X[:, 1], c=self.cluster, cmap=plt.cm.Set1,
                         edgecolor='k')
-            # set axises
-            plt.xlabel('eigenvector 1')
-            plt.ylabel('eigenvector 1')
-            plt.xlim(min(self.X[:, 0])-1, max(self.X[:, 0])+1)
-            plt.ylim(min(self.X[:, 1]-1), max(self.X[:, 1])+1)
-            plt.xticks(())
-            plt.yticks(())
+        # set axises
+        plt.xlabel('eigenvector 1')
+        plt.ylabel('eigenvector 2')
+        plt.xlim(min(self.X[:, 0]-1), max(self.X[:, 0])+1)
+        plt.ylim(min(self.X[:, 1]-1), max(self.X[:, 1])+1)
+        plt.xticks(())
+        plt.yticks(())
         if save:
             plt.savefig(save)
         plt.show()
